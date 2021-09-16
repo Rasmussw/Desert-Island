@@ -11,26 +11,20 @@ public class main {
         System.out.println(velkomstBesked);
 
         String[] muligheder = {"1. Kæreste", "2. Kaffemaskine", "3. Netflix", "4. Sofa", "5. Løbesko",
-                "6. Guiter", "7. Slik", "8. Hund", "9. Bog", "10. Øl"};
-
+                "6. Guitar", "7. Slik", "8. Hund", "9. Bog", "10. Øl"};
+        //så mulighederne bliver printet ud som en liste:
         for (int i = 0; i < muligheder.length; i++) {
             System.out.println(muligheder[i]);
         }
 
-
-
-        //Så det bliver printet ud som en liste:
         int[] hvorMangeGangeBliveDetValgt = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 
         for (int i = 0; i < 10; i++) {
-
 
             String valgAfMulighederBesked = "Indtast valg";
             System.out.println(valgAfMulighederBesked);
             Scanner scanner = new Scanner(System.in);
             int brugerValgFraListe = scanner.nextInt();
-
-            //prøve med while loop
 
             switch (brugerValgFraListe) {
                 case 1:
