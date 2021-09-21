@@ -123,17 +123,40 @@ public class main {
         System.out.println(Arrays.toString(howManyTimesChoosen));
 
         //for at finde den mulighed der er blevet valgt flest gange
+        int[] indexToMax = {0,0,0,0,0,0,0,0,0,0};
+        int numberOfMaxAlike = 0;
+        int max = 0;
+
+        for (int i = 0; i < howManyTimesChoosen.length; i++) {
+            if (max < howManyTimesChoosen[i]){
+                indexToMax[0] = i;
+                numberOfMaxAlike = 1;
+                max = howManyTimesChoosen[i];
+            } else if (max == howManyTimesChoosen[i]){
+                indexToMax[numberOfMaxAlike] = i;
+                numberOfMaxAlike += 1;
+                max = howManyTimesChoosen[i];
+            }
+
+        }
+
+        for (int i = 0; i < numberOfMaxAlike; i++) {
+            String choosenMostTime = options[indexToMax[i]];
+            System.out.println("Mest populærer valg er " + choosenMostTime);
+        }
+
+
+        /*
        int maximum = 0;
-       int indexForMaximum = 0;
+      int indexForMaximum = 0;
         for (int i = 0; i < howManyTimesChoosen.length; i++) {
             if (maximum < howManyTimesChoosen[i]){
                 maximum = howManyTimesChoosen[i];
                 indexForMaximum = i;
             }
         }
-        String choosenMostTimes = options[indexForMaximum];
 
-        System.out.println("Mest populærer valg er: " + choosenMostTimes);
+         */
 
     }
 }
