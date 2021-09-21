@@ -7,26 +7,28 @@ public class main {
 
 
     public static void main(String[] args) {
-        String velkomstBesked = "Velkommen, hvilken af følgene ting vil du helst have med på en øde ø?";
-        System.out.println(velkomstBesked);
+        String welcomeMessage = "Velkommen, hvilken af følgene ting vil du helst have med på en øde ø?";
+        System.out.println(welcomeMessage);
 
-        String[] muligheder = {"1. Kæreste", "2. Kaffemaskine", "3. Netflix", "4. Sofa", "5. Løbesko",
+        String[] options = {"1. Kæreste", "2. Kaffemaskine", "3. Netflix", "4. Sofa", "5. Løbesko",
                 "6. Guitar", "7. Slik", "8. Hund", "9. Bog", "10. Øl"};
+
         //så mulighederne bliver printet ud som en liste:
-        for (int i = 0; i < muligheder.length; i++) {
-            System.out.println(muligheder[i]);
+
+        for (int i = 0; i < options.length; i++) {
+            System.out.println(options[i]);
         }
 
-        int[] hvorMangeGangeBliveDetValgt = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+        int[] howManyTimesChoosen = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 
         for (int i = 0; i < 10; i++) {
 
-            String valgAfMulighederBesked = "Indtast valg";
-            System.out.println(valgAfMulighederBesked);
+            String optionsMessage = "Indtast valg";
+            System.out.println(optionsMessage);
             Scanner scanner = new Scanner(System.in);
-            int brugerValgFraListe = scanner.nextInt();
+            int userPickFromList = scanner.nextInt();
 
-            switch (brugerValgFraListe) {
+            switch (userPickFromList) {
                 case 1:
                     System.out.println("Du har valgt Kæreste");
                     break;
@@ -57,56 +59,55 @@ public class main {
                 case 10:
                     System.out.println("Du har valgt Øl");
                     break;
-                default:
-                    System.out.println("Dit svar kan ikke bruges, du skal vælge imellem 1-10!!");
             }
 
 
-            if (brugerValgFraListe == 1) {
-                hvorMangeGangeBliveDetValgt[0] += 1;
+            if (userPickFromList == 1) {
+                howManyTimesChoosen[0] += 1;
 
-            } else if (brugerValgFraListe == 2) {
-                hvorMangeGangeBliveDetValgt[1] = hvorMangeGangeBliveDetValgt[1] + 1;
+            } else if (userPickFromList == 2) {
+                howManyTimesChoosen[1] += 1;
 
-            } else if (brugerValgFraListe == 3) {
-                hvorMangeGangeBliveDetValgt[2] = hvorMangeGangeBliveDetValgt[2] + 1;
+            } else if (userPickFromList == 3) {
+                howManyTimesChoosen[2] += 1;
 
-            } else if (brugerValgFraListe == 4) {
-                hvorMangeGangeBliveDetValgt[3] = hvorMangeGangeBliveDetValgt[3] + 1;
+            } else if (userPickFromList == 4) {
+                howManyTimesChoosen[3] += 1;
 
-            } else if (brugerValgFraListe == 5) {
-                hvorMangeGangeBliveDetValgt[4] = hvorMangeGangeBliveDetValgt[4] + 1;
+            } else if (userPickFromList == 5) {
+                howManyTimesChoosen[4] += 1;
 
-            } else if (brugerValgFraListe == 6) {
-                hvorMangeGangeBliveDetValgt[5] = hvorMangeGangeBliveDetValgt[5] + 1;
+            } else if (userPickFromList == 6) {
+                howManyTimesChoosen[5] += 1;
 
-            } else if (brugerValgFraListe == 7) {
-                hvorMangeGangeBliveDetValgt[6] = hvorMangeGangeBliveDetValgt[6] + 1;
+            } else if (userPickFromList == 7) {
+                howManyTimesChoosen[6] += 1;
 
-            } else if (brugerValgFraListe == 8) {
-                hvorMangeGangeBliveDetValgt[7] = hvorMangeGangeBliveDetValgt[7] + 1;
+            } else if (userPickFromList == 8) {
+                howManyTimesChoosen[7] += 1;
 
-            } else if (brugerValgFraListe == 9) {
-                hvorMangeGangeBliveDetValgt[8] = hvorMangeGangeBliveDetValgt[8] + 1;
+            } else if (userPickFromList == 9) {
+                howManyTimesChoosen[8] += 1;
 
-            } else if (brugerValgFraListe == 10) {
-                hvorMangeGangeBliveDetValgt[9] = hvorMangeGangeBliveDetValgt[9] + 1;
+            } else if (userPickFromList == 10) {
+                howManyTimesChoosen[9] += 1;
             }
         }
-        System.out.println(Arrays.toString(hvorMangeGangeBliveDetValgt));
+        System.out.println(Arrays.toString(howManyTimesChoosen));
 
         //for at finde den mulighed der er blevet valgt flest gange
+
        int maximum = 0;
        int indexForMaximum = 0;
-        for (int i = 0; i < hvorMangeGangeBliveDetValgt.length; i++) {
-            if (maximum < hvorMangeGangeBliveDetValgt[i]){
-                maximum = hvorMangeGangeBliveDetValgt[i];
+        for (int i = 0; i < howManyTimesChoosen.length; i++) {
+            if (maximum < howManyTimesChoosen[i]){
+                maximum = howManyTimesChoosen[i];
                 indexForMaximum = i;
             }
         }
-        String valgtFlestGange = muligheder[indexForMaximum];
+        String choosenMostTimes = options[indexForMaximum];
 
-        System.out.println("Mest populærer valg er: " + valgtFlestGange);
+        System.out.println("Mest populærer valg er: " + choosenMostTimes);
 
     }
 }
