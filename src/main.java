@@ -2,11 +2,23 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Stream;
-
 public class main {
 
+    public static int userInputValidation(){
+        int userInput = 0;
+        try {
+            String optionsMessage = "Indtast valg";
+            System.out.println(optionsMessage);
+            Scanner scanner = new Scanner(System.in);
+            userInput = scanner.nextInt();
+
+        } catch (Exception e) {
+        }
+        return userInput;
+    }
 
     public static void main(String[] args) {
+
         String welcomeMessage = "Velkommen, hvilken af følgene ting vil du helst have med på en øde ø?";
         System.out.println(welcomeMessage);
 
@@ -14,53 +26,67 @@ public class main {
                 "6. Guitar", "7. Slik", "8. Hund", "9. Bog", "10. Øl"};
 
         //så mulighederne bliver printet ud som en liste:
-
         for (int i = 0; i < options.length; i++) {
             System.out.println(options[i]);
         }
 
         int[] howManyTimesChoosen = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+        int userPickFromList = 0;
 
+        // et for-loop så der bliver spurgt 10 gange
         for (int i = 0; i < 10; i++) {
 
-            String optionsMessage = "Indtast valg";
-            System.out.println(optionsMessage);
-            Scanner scanner = new Scanner(System.in);
-            int userPickFromList = scanner.nextInt();
+            boolean done = false;
+            while (!done) {
 
-            switch (userPickFromList) {
-                case 1:
-                    System.out.println("Du har valgt Kæreste");
-                    break;
-                case 2:
-                    System.out.println("Du har valgt Kaffemaskine");
-                    break;
-                case 3:
-                    System.out.println("Du har valgt Netflix");
-                    break;
-                case 4:
-                    System.out.println("Du har valgt Sofa");
-                    break;
-                case 5:
-                    System.out.println("Du har valgt Løbesko");
-                    break;
-                case 6:
-                    System.out.println("Du har valgt Guitar");
-                    break;
-                case 7:
-                    System.out.println("Du har valgt Slik");
-                    break;
-                case 8:
-                    System.out.println("Du har valgt Hund");
-                    break;
-                case 9:
-                    System.out.println("Du har valgt Bog");
-                    break;
-                case 10:
-                    System.out.println("Du har valgt Øl");
-                    break;
+                userPickFromList = userInputValidation();
+
+                    switch (userPickFromList) {
+                        case 1:
+                            System.out.println("Du har valgt Kæreste");
+                            done = true;
+                            break;
+                        case 2:
+                            System.out.println("Du har valgt Kaffemaskine");
+                            done = true;
+                            break;
+                        case 3:
+                            System.out.println("Du har valgt Netflix");
+                            done = true;
+                            break;
+                        case 4:
+                            System.out.println("Du har valgt Sofa");
+                            done = true;
+                            break;
+                        case 5:
+                            System.out.println("Du har valgt Løbesko");
+                            done = true;
+                            break;
+                        case 6:
+                            System.out.println("Du har valgt Guitar");
+                            done = true;
+                            break;
+                        case 7:
+                            System.out.println("Du har valgt Slik");
+                            done = true;
+                            break;
+                        case 8:
+                            System.out.println("Du har valgt Hund");
+                            done = true;
+                            break;
+                        case 9:
+                            System.out.println("Du har valgt Bog");
+                            done = true;
+                            break;
+                        case 10:
+                            System.out.println("Du har valgt Øl");
+                            done = true;
+                            break;
+                        default:
+                            System.out.println("Du skal vælge et tal imellem 1-10");
+                            break;
+                    }
             }
-
 
             if (userPickFromList == 1) {
                 howManyTimesChoosen[0] += 1;
@@ -93,10 +119,10 @@ public class main {
                 howManyTimesChoosen[9] += 1;
             }
         }
+        //printer listen ud så man kan se hvor mange gange de forskellige muligheder er blavet valgt
         System.out.println(Arrays.toString(howManyTimesChoosen));
 
         //for at finde den mulighed der er blevet valgt flest gange
-
        int maximum = 0;
        int indexForMaximum = 0;
         for (int i = 0; i < howManyTimesChoosen.length; i++) {
