@@ -4,6 +4,16 @@ import java.util.Scanner;
 import java.util.stream.Stream;
 public class main {
 
+    public static String optionsList (String[] options){
+        String optionsList = null;
+
+        for (int i = 0; i < options.length; i++) {
+            optionsList = options[i];
+            System.out.println(optionsList);
+        }
+        return optionsList;
+    }
+
     public static int userInputValidation(){
         int userInput = 0;
         try {
@@ -25,10 +35,7 @@ public class main {
         String[] options = {"1. Kæreste", "2. Kaffemaskine", "3. Netflix", "4. Sofa", "5. Løbesko",
                 "6. Guitar", "7. Slik", "8. Hund", "9. Bog", "10. Øl"};
 
-        //så mulighederne bliver printet ud som en liste:
-        for (int i = 0; i < options.length; i++) {
-            System.out.println(options[i]);
-        }
+       optionsList(options);
 
         int[] howManyTimesChoosen = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
         int userPickFromList = 0;
@@ -122,7 +129,7 @@ public class main {
         //printer listen ud så man kan se hvor mange gange de forskellige muligheder er blavet valgt
         System.out.println(Arrays.toString(howManyTimesChoosen));
 
-        //for at finde den mulighed der er blevet valgt flest gange
+        //for at finde den mulighed/muligheder der er blevet valgt flest gange
         int[] indexToMax = {0,0,0,0,0,0,0,0,0,0};
         int numberOfMaxAlike = 0;
         int max = 0;
@@ -144,19 +151,5 @@ public class main {
             String choosenMostTime = options[indexToMax[i]];
             System.out.println("Mest populærer valg er " + choosenMostTime);
         }
-
-
-        /*
-       int maximum = 0;
-      int indexForMaximum = 0;
-        for (int i = 0; i < howManyTimesChoosen.length; i++) {
-            if (maximum < howManyTimesChoosen[i]){
-                maximum = howManyTimesChoosen[i];
-                indexForMaximum = i;
-            }
-        }
-
-         */
-
     }
 }
